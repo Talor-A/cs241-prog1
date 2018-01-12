@@ -11,11 +11,11 @@ public class BinaryNode<T> {
     }
 
     public BinaryNode(T data) {
-        this(data, null, null)
+        this(data, null, null);
     }
 
     public BinaryNode() {
-        this(null, null, null)
+        this(null, null, null);
     }
 
     /*Getters*/
@@ -76,7 +76,7 @@ public class BinaryNode<T> {
                     getHeight(node.getRight())
             );
         }
-        return height
+        return height;
     }
 
 }
