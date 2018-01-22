@@ -3,7 +3,7 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
     BinaryNode<T> root;
 
     public void setTree(T rootData) {
-        this.root = new BinaryNode<>(rootData);
+        this.root = new BinaryNode<T>(rootData);
     }
 
     public void setTree(
@@ -42,7 +42,7 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
 
     public void preorderTraverse(BinaryNode<T> node) {
         if (node != null) {
-            System.out.println(node.getData());
+            System.out.print(node.getData()+ " ");
             preorderTraverse(node.getLeft());
             preorderTraverse(node.getRight());
         }
@@ -55,7 +55,7 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
     public void inorderTraverse(BinaryNode<T> node) {
         if (node != null) {
             inorderTraverse(node.getLeft());
-            System.out.println(node.getData());
+            System.out.print(node.getData()+ " ");
             inorderTraverse(node.getRight());
         }
     }
@@ -68,7 +68,7 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
         if (node != null) {
             postorderTraverse(node.getLeft());
             postorderTraverse(node.getRight());
-            System.out.println(node.getData());
+            System.out.print(node.getData()+ " ");
         }
     }
     /*Iterators*/

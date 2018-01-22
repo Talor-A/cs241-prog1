@@ -1,7 +1,7 @@
 public class BinaryNode<T> {
     private T data;
-    private BinaryNode left;
-    private BinaryNode right;
+    private BinaryNode<T> left;
+    private BinaryNode<T> right;
 
     /*Constructors*/
     public BinaryNode(T data, BinaryNode left, BinaryNode right) {
@@ -59,8 +59,10 @@ public class BinaryNode<T> {
 
     public int getNumberOfNodes() {
         int total = 1;
-        if (hasLeft()) total += left.getNumberOfNodes();
-        if (hasRight()) total += right.getNumberOfNodes();
+        if (hasLeft())
+            total += left.getNumberOfNodes();
+        if (hasRight())
+            total += right.getNumberOfNodes();
         return total;
     }
 
@@ -71,12 +73,14 @@ public class BinaryNode<T> {
     public int getHeight(BinaryNode<T> node) {
         int height = 0;
         if (node != null) {
-            height = 1 + Math.max(
-                    getHeight(node.getLeft()),
-                    getHeight(node.getRight())
-            );
+            height = 1 + Math.max(getHeight(node.getLeft()), getHeight(node.getRight()));
         }
         return height;
+    }
+
+    public BinaryNode<T> copy() {
+        BinaryNode<T> newNode = new BinaryNode<T>(this.getData(), this.getLeft(), this.getRight());
+        return newNode;
     }
 
 }

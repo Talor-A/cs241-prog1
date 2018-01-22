@@ -15,6 +15,21 @@ public class BinaryTreeDriver {
             numList[i] = Integer.parseInt(inputtedNums[i]);
         }
         //create tree
+        BinarySearchTree<Integer> tree = new BinarySearchTree<Integer>(numList[0]);
+
+        for (int i : numList) {
+            tree.add(i);
+        }
+
+        System.out.print("Pre-order: ");
+        tree.preorderTraverse();
+        System.out.println();
+        System.out.print("In-order: ");
+        tree.inorderTraverse();
+        System.out.println();
+        System.out.print("Post-order: ");
+        tree.postorderTraverse();
+        System.out.println();
 
         //run menu
         boolean running = true;
@@ -22,12 +37,19 @@ public class BinaryTreeDriver {
             System.out.print("Command? ");
             String command = kb.next().toUpperCase();
             if (command.equals("I")) {
-                for (int num : numList) {
-                    System.out.print(num + " ");
-                }
-                System.out.println();
+                Integer result = tree.add(kb.nextInt());
+                if(result != null ) {
+                    System.out.println(result + " already exists, ignore");
+                }else{
+                    System.out.print("In-order: ");
+                    tree.inorderTraverse();
+                    System.out.println();
+                } 
             } else if (command.equals("D")) {
-
+                tree.remove(kb.nextInt());
+                System.out.print("In-order: ");
+                tree.inorderTraverse();
+                System.out.println();
             } else if (command.equals("P")) {
 
             } else if (command.equals("S")) {
@@ -36,7 +58,12 @@ public class BinaryTreeDriver {
                 System.out.println("Thank you for using my program!");
                 return;
             } else if (command.equals("H")) {
-
+                System.out.println("I Insert a value");
+                System.out.println("D Delete a value");
+                System.out.println("P Find predecessor");
+                System.out.println("S Find successor");
+                System.out.println("E Exit the program");
+                System.out.println("H Display this message");
             } else {
                 System.out.println("Invalid Command.");
             }
