@@ -51,7 +51,7 @@ public class BinaryTreeDriver {
                 tree.inorderTraverse();
                 System.out.println();
             } else if (command.equals("P")) {
-
+                System.out.println("predecessor: "+tree.getPredecessor(kb.nextInt()));
             } else if (command.equals("S")) {
 
             } else if (command.equals("E")) {

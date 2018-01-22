@@ -119,18 +119,18 @@ public class BinarySearchTree<T extends Comparable<? super T>> extends BinaryTre
   }
 
   private NodePair findNode(T entry) {
-    return findNode(new NodePair(null, this.root));
+    return findNode(entry, new NodePair(null, this.root));
   }
 
-  private NodePair findNode(NodePair pair) {
+  private NodePair findNode(T entry, NodePair pair) {
     BinaryNode<T> parent = null;
     BinaryNode<T> child = this.root;
     if (entry.equals(child.getData())) {
       return new NodePair(parent, child);
     } else if (entry.compareTo(child.getData()) < 0) {
-      return findNode(new NodePair(child, child.getLeft()));
+      return findNode(entry, new NodePair(child, child.getLeft()));
     } else {
-      return findNode(new NodePair(child, child.getRight()));
+      return findNode(entry, new NodePair(child, child.getRight()));
     }
 
   }
